@@ -15,11 +15,11 @@
 			text-align: center;
 			margin: 10% 5%;
 			border-radius: 50%;
-			opacity: 0.9;
+			opacity: 0.85;
 			transform: translateY(0);
 			transition: 0.1s;
 			border-style: outset;
-			border: green 3px;
+			border: black 3px;
 		}
 
 		.container button:hover {
@@ -29,33 +29,41 @@
 	</style>
 </head>
 
-<body style="margin : 3% 30%;">
+<body style="margin : 100px 30%;">
 	<div style="background-color: black; padding: 10%; border-radius: 5%;">
 		<input id="output" name="output" style="text-align: right; font-size: 400%; width: 100%;">
 		<br><br><br>
 		<div class="container">
-			<button>(</button>
-			<button>)</button>
-			<button>< </button>
-			<button style="background-color: chocolate">C</button>
-			<button>7</button>
-			<button>8</button>
-			<button>9</button>
-			<button style="background-color: chocolate">+</button>
-			<button>4</button>
-			<button>5</button>
-			<button>6</button>
-			<button style="background-color: chocolate">-</button>
-			<button>1</button>
-			<button>2</button>
-			<button>3</button>
-			<button style="background-color: chocolate">*</button>
-			<button>.</button>
-			<button>0</button>
-			<button style="background-color:aqua">=</button>
-			<button style="background-color:chocolate">/</button>
+			<button onclick="output.value+='('">(</button>
+			<button onclick="output.value+=')'">)</button>
+			<button onclick="backspace()">-> </button>
+			<button onclick="output.value=''" style="background-color: chocolate">C</button>
+			<button onclick="output.value+='7'">7</button>
+			<button onclick="output.value+='8'">8</button>
+			<button onclick="output.value+='9'">9</button>
+			<button onclick="output.value+='+'" style="background-color: chocolate">+</button>
+			<button onclick="output.value+='4'">4</button>
+			<button onclick="output.value+='5'">5</button>
+			<button onclick="output.value+='6'">6</button>
+			<button onclick="output.value+='-'" style="background-color: chocolate">-</button>
+			<button onclick="output.value+='1'">1</button>
+			<button onclick="output.value+='2'">2</button>
+			<button onclick="output.value+='3'">3</button>
+			<button onclick="output.value+='*'" style="background-color: chocolate">*</button>
+			<button onclick="output.value+='.'">.</button>
+			<button onclick="output.value+='0'">0</button>
+			<button onclick="output.value = eval(output.value)" style="background-color:aqua">=</button>
+			<button onclick="output.value+='/'" style="background-color:chocolate">/</button>
 		</div>
 	</div>
+
+	<script>
+		function backspace() {
+			str = output.value;
+			str[str.length() - 2] = 'k';
+			output.value = str;
+		}
+	</script>
 </body>
 
 </html>
