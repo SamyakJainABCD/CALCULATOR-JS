@@ -60,7 +60,7 @@
 	<script>
 		function backspace() {
 			str = output.value;
-			str[str.length() - 2] = 'k';
+			str = str.substring(0, str.length-1);
 			output.value = str;
 		}
 	</script>
